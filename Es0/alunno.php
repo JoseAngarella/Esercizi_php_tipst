@@ -1,5 +1,5 @@
 <?php
-    class alunno{
+    class alunno implements JsonSerializable{
         private $nome;
         private $cognome;
         private $eta;
@@ -32,6 +32,16 @@
 
         public function toString(){
             return "alunno ".$this->nome." ". $this->cognome." eta: ".$this->eta;
+        }
+
+        public function jsonSerialize():array
+        {
+                return [
+                    "nome" => $this->nome,
+                    "cognome" => $this->cognome,
+                    "eta" => $this ->eta
+                ];
+            
         }
 
 
